@@ -18,7 +18,7 @@ public class MvcErrorsDemo {
 	@RestController
 	static class DemoController {
 		@PostMapping("/")
-		String handle(@Valid @RequestBody ValidatedRequest request) {
+		String handle(@Valid @RequestBody LootboxPurchaseRequest request) {
 			return "Request was valid";
 		}
 	}
