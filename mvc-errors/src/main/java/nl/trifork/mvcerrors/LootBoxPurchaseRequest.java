@@ -6,7 +6,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 
-public class LootboxPurchaseRequest {
+public class LootBoxPurchaseRequest {
 
     @NotNull @Pattern(regexp = "\\d{8}")
     private String productEan;
