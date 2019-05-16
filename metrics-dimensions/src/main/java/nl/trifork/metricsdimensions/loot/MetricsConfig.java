@@ -5,6 +5,7 @@ import io.micrometer.core.instrument.Tag;
 import io.micrometer.core.instrument.config.MeterFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 //@Configuration
@@ -45,6 +46,14 @@ public class MetricsConfig {
                 return id.withTag(Tag.of("monitoring_request", Boolean.toString(monitoringRequest)));
             }
         };
+    }
+
+    /**
+     * Required to allow the  above filter to retrieve the request from the RequestContextHolder
+     */
+    @Bean
+    RequestContextListener requestContextListener() {
+        return new RequestContextListener();
     }
 
 }
